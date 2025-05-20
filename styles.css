@@ -763,4 +763,66 @@ body.dark .modal-price {
     object-fit: cover;
     pointer-events: none;
     user-select: none;
+}
+@media (max-width: 500px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 0.7rem 0.7rem 0.7rem;
+    }
+    header h1 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    .simple-switch-container {
+        align-self: flex-end;
+    }
+    .products {
+        gap: 1rem;
+        margin: 1.2rem 0;
+    }
+    .product {
+        width: 98vw;
+        min-width: unset;
+        max-width: 99vw;
+        padding: 1rem 0.5rem;
+        font-size: 0.97rem;
+    }
+    .product-image img {
+        height: 110px;
+    }
+    .buy-btn, .view-btn {
+        font-size: 0.97rem;
+        padding: 0.4rem 0.7rem;
+        margin-top: 0.5rem;
+    }
+    .modal-content, .product-modal-content {
+        min-width: 90vw;
+        max-width: 99vw;
+        padding: 0.7rem 0.2rem 0.7rem 0.2rem;
+    }
+    .modal-details {
+        padding: 0.7rem 0.2rem;
+        max-width: 99vw;
+    }
+    .modal-title {
+        font-size: 1.1rem;
+    }
+    .modal-company, .modal-price, .modal-desc {
+        font-size: 0.97rem;
+    }
+    .modal-buy-btn {
+        font-size: 1rem;
+        padding: 0.5rem 0;
+    }
+    .modal-image img {
+        max-width: 95vw;
+        height: auto;
+    }
+    .modal-flex {
+        flex-direction: column;
+        align-items: center;
+        min-width: unset;
+        max-width: 99vw;
+    }
 } 
