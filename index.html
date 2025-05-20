@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trendora - متجر المنتجات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 class="glitch" data-text="Trendora">Trendora</h1>
+        <div class="simple-switch-container">
+            <input type="checkbox" id="simple-theme-switch" class="simple-switch-input" aria-label="تبديل الوضع">
+            <label for="simple-theme-switch" class="simple-switch-label">
+                <span class="simple-switch-slider">
+                    <span class="slider-icon">🌞</span>
+                </span>
+            </label>
+        </div>
+    </header>
+    <main>
+        <section class="products">
+            <div class="product" style="--card-index:0">
+                <div class="product-image"><img src="magicdryprouduct/main.avif" alt="ماجيك دراي"></div>
+                <h2>ماجيك دراي</h2>
+                <p class="price">1200 جنيه مصري</p>
+                <p class="desc">تبريد وتجفيف بالهواء البارد – مخصص لتجفيف الأقمشة الحساسة بدون تلف أو انكماش</p>
+                <button class="buy-btn">شراء</button>
+                <button class="view-btn">عرض</button>
+            </div>
+            <div class="product" style="--card-index:1">
+                <div class="product-image"><img src="airfan/main.avif" alt="مروحة تكييف"></div>
+                <h2>مروحة تكييف</h2>
+                <p class="price">600 جنيه مصري</p>
+                <p class="desc">مكيف محمول متعدد الوظائف – تكييف، مروحة، فواحة، وإضاءة ليلية في جهاز واحد</p>
+                <button class="buy-btn">شراء</button>
+                <button class="view-btn">عرض</button>
+            </div>
+            <div class="product" style="--card-index:2">
+                <div class="product-image"><img src="clothesclean/main.jpg" alt="غسالة متنقلة"></div>
+                <h2>غسالة متنقلة</h2>
+                <p class="price">300 جنيه مصري</p>
+                <p class="desc">غسالة محمولة صغيرة تعمل بالموجات فوق الصوتية ، تعمل بالطاقة توربو ، تزيل الأوساخ ، تنظيف الملابس</p>
+                <button class="buy-btn">شراء</button>
+                <button class="view-btn">عرض</button>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+
+    <!-- نافذة منبثقة لتفاصيل المنتج -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content product-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-flex">
+                <div class="modal-media-col">
+                    <div class="magicdry-modal-slider" style="display:none">
+                        <img src="magicdryprouduct/square_1.jpg" alt="ماجيك دراي" class="active">
+                        <img src="magicdryprouduct/square_2.jpeg" alt="ماجيك دراي" style="display:none;">
+                        <img src="magicdryprouduct/square_3.jpeg" alt="ماجيك دراي" style="display:none;">
+                    </div>
+                    <video class="magicdry-modal-video" style="display:none" src="magicdryprouduct/dry.mp4" muted loop playsinline></video>
+                    <div class="airfan-modal-slider" style="display:none">
+                        <img src="airfan/1.jpg" alt="مروحة تكييف" class="active">
+                    </div>
+                    <video class="airfan-modal-video" style="display:none" src="airfan/fan.mp4" muted loop playsinline></video>
+                    <div class="clothesclean-modal-slider" style="display:none">
+                        <img src="clothesclean/main.jpg" alt="غسالة متنقلة" class="active">
+                        <img src="clothesclean/1.jpg" alt="غسالة متنقلة" style="display:none;">
+                        <img src="clothesclean/2.jpg" alt="غسالة متنقلة" style="display:none;">
+                        <img src="clothesclean/3.jpg" alt="غسالة متنقلة" style="display:none;">
+                        <img src="clothesclean/4.jpg" alt="غسالة متنقلة" style="display:none;">
+                    </div>
+                    <video class="clothesclean-modal-video" style="display:none" src="clothesclean/cc.mp4" muted loop playsinline></video>
+                    <div class="modal-image" id="modal-img-container">
+                        <img id="modal-img" src="image/soon-product.webp" alt="صورة المنتج">
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 class="modal-title"></h2>
+                    <p class="modal-company">الشركة : <span class="brand-name">Trendora</span></p>
+                    <p class="modal-price"></p>
+                    <p class="modal-desc"></p>
+                    <button class="buy-btn modal-buy-btn">شراء الآن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة منبثقة لعرض الصور -->
+    <div id="image-viewer-modal" class="modal" style="display:none">
+        <div class="modal-content" style="max-width: 520px; padding: 0; background: var(--card-bg); position: relative;">
+            <span class="close-modal" id="close-image-viewer" style="left:unset; right:1rem;">&times;</span>
+            <button class="slider-btn prev" id="image-viewer-prev" style="left: 10px;">&#8592;</button>
+            <img id="image-viewer-img" src="" alt="صورة المنتج" style="width:100%; max-height:420px; object-fit:contain; border-radius:14px; display:block; margin:0 auto; background:#000;">
+            <button class="slider-btn next" id="image-viewer-next" style="right: 10px;">&#8594;</button>
+        </div>
+    </div>
+</body>
+</html> 
