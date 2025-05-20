@@ -834,17 +834,23 @@ body.dark .modal-price {
         max-width: 100vw;
     }
     .close-modal {
-        top: 0.5rem;
-        left: 0.5rem;
-        font-size: 2rem;
-        z-index: 10;
-        background: rgba(255,255,255,0.7);
-        border-radius: 50%;
-        width: 36px;
-        height: 36px;
+        position: fixed !important;
+        top: 12px !important;
+        left: 12px !important;
+        right: unset !important;
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 2.2rem !important;
+        background: rgba(255,255,255,0.95) !important;
+        color: #007B7B !important;
+        border-radius: 50% !important;
+        z-index: 9999 !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.13);
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
+        border: 2px solid #e0e0e0;
     }
     .modal-title {
         font-size: 1.1rem;
@@ -860,5 +866,8 @@ body.dark .modal-price {
         max-height: 120px;
         min-height: 60px;
         overflow-y: auto;
+    }
+    .modal-content, .product-modal-content {
+        padding-top: 3.5rem;
     }
 } 
