@@ -5,6 +5,9 @@ body {
     background: var(--bg);
     color: var(--text);
     transition: background 0.3s, color 0.3s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 :root {
     --primary: #2E8B8B;
@@ -875,4 +878,69 @@ body.dark .modal-price {
     .modal-content, .product-modal-content {
         padding-top: 3.5rem;
     }
-} 
+}
+
+/* Footer Styles */
+.site-footer {
+    flex-shrink: 0;
+    width: 100%;
+    background: var(--card-bg);
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border);
+    padding: 1.1rem 0 0.7rem 0;
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1rem;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+}
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.copyright {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+.tiktok-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: var(--text);
+    overflow: visible;
+}
+
+.tiktok-icon svg {
+    position: relative;
+    z-index: 2;
+    width: 32px;
+    height: 32px;
+    display: block;
+    transition: filter 0.2s;
+    /* اجعل الشعار أبيض دائماً أو حسب المود */
+    color: inherit;
+}
+
+/* أنميشن خفيف (اهتزاز بسيط) للوجو تيك توك عند مرور الماوس */
+.tiktok-icon:hover svg {
+    animation: tiktok-wobble 0.4s linear;
+}
+
+@keyframes tiktok-wobble {
+    0% { transform: translate(0,0) rotate(0deg) scale(1);}
+    20% { transform: translate(-1px,1px) rotate(-6deg) scale(1.04);}
+    40% { transform: translate(1px,-1px) rotate(4deg) scale(0.98);}
+    60% { transform: translate(-1px,1px) rotate(-3deg) scale(1.03);}
+    80% { transform: translate(1px,-1px) rotate(2deg) scale(1);}
+    100% { transform: translate(0,0) rotate(0deg) scale(1);}
+}
+
+
+
