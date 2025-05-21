@@ -137,6 +137,7 @@ window.onload = function() {
                     function showImage(idx) {
                         images.forEach((img, i) => {
                             img.classList.toggle('active', i === idx);
+                            img.style.display = i === idx ? '' : 'none';
                         });
                     }
                     showImage(current);
@@ -144,7 +145,7 @@ window.onload = function() {
                     window.magicdryModalSliderInterval = setInterval(() => {
                         current = (current + 1) % images.length;
                         showImage(current);
-                    }, 3000);
+                    }, 2500);
                 } else if (title.trim() === 'مروحة تكييف' && airfanSlider && airfanVideo && modalImgContainer) {
                     if (modalSlider) modalSlider.style.display = 'none';
                     if (modalVideo) { modalVideo.pause(); modalVideo.style.display = 'none'; }
@@ -177,7 +178,7 @@ window.onload = function() {
                     window.clothescleanModalSliderInterval = setInterval(() => {
                         current = (current + 1) % images.length;
                         showImage(current);
-                    }, 3000);
+                    }, 2500);
                 } else {
                     if (modalSlider) modalSlider.style.display = 'none';
                     if (modalVideo) { modalVideo.pause(); modalVideo.style.display = 'none'; }
@@ -200,13 +201,40 @@ window.onload = function() {
     });
 
     if (closeModal && modal) {
+        function resetModalContent() {
+            const modalSlider = document.querySelector('.magicdry-modal-slider');
+            const modalVideo = document.querySelector('.magicdry-modal-video');
+            const airfanSlider = document.querySelector('.airfan-modal-slider');
+            const airfanVideo = document.querySelector('.airfan-modal-video');
+            const clothescleanSlider = document.querySelector('.clothesclean-modal-slider');
+            const clothescleanVideo = document.querySelector('.clothesclean-modal-video');
+            const modalImgContainer = document.getElementById('modal-img-container');
+            if (modalSlider) modalSlider.style.display = 'none';
+            if (modalVideo) { modalVideo.pause(); modalVideo.style.display = 'none'; }
+            if (airfanSlider) airfanSlider.style.display = 'none';
+            if (airfanVideo) { airfanVideo.pause(); airfanVideo.style.display = 'none'; }
+            if (clothescleanSlider) clothescleanSlider.style.display = 'none';
+            if (clothescleanVideo) { clothescleanVideo.pause(); clothescleanVideo.style.display = 'none'; }
+            if (modalImgContainer) modalImgContainer.style.display = 'none';
+            if (window.magicdryModalSliderInterval) {
+                clearInterval(window.magicdryModalSliderInterval);
+                window.magicdryModalSliderInterval = null;
+            }
+            if (window.clothescleanModalSliderInterval) {
+                clearInterval(window.clothescleanModalSliderInterval);
+                window.clothescleanModalSliderInterval = null;
+            }
+            const modalImg = document.getElementById('modal-img');
+            if (modalImg) modalImg.src = '';
+        }
         closeModal.addEventListener('click', () => {
             modal.classList.remove('show');
+            resetModalContent();
         });
-
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.remove('show');
+                resetModalContent();
             }
         });
     }
@@ -238,14 +266,16 @@ window.onload = function() {
     // تعريف صور كل منتج
     const productImages = [
         [
-            'magicdryprouduct/square_1.jpg',
-            'magicdryprouduct/square_2.jpeg',
-            'magicdryprouduct/square_3.jpeg'
+            'magicdryprouduct/1.jpg',
+            'magicdryprouduct/2.jpeg',
+            'magicdryprouduct/3.jpeg'
         ],
+        // صور المنتج الثاني
         [
             'airfan/1.jpg',
             'airfan/main.avif'
         ],
+        // صور المنتج الثالث
         [
             'clothesclean/main.jpg',
             'clothesclean/1.jpg',
