@@ -880,6 +880,21 @@ body.dark .modal-price {
     }
 }
 
+/* لوجو Trendora بخط مميز */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.logo-trendora {
+    font-family: 'Pacifico', 'Cairo', cursive, sans-serif;
+    font-size: 2.8rem;
+    color: var(--primary, #00bfae);
+    letter-spacing: 2px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    margin: 0 0 10px 0;
+    text-align: center;
+    user-select: none;
+    line-height: 1.1;
+}
+
 /* Footer Styles */
 .site-footer {
     flex-shrink: 0;
